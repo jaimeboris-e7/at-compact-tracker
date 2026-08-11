@@ -1,0 +1,428 @@
+{
+  "fetchedAt": "2026-07-18T09:00:00.000Z",
+  "source": "LegiScan API (sample snapshot researched manually, July 2026)",
+  "states": [
+    {
+      "state": "AL",
+      "name": "Alabama",
+      "status": "enacted",
+      "bills": [
+        {
+          "billNumber": "SB160",
+          "title": "Athletic Trainer Licensure Compact",
+          "description": "Establishes an interstate licensure compact for athletic trainers.",
+          "status": "enacted",
+          "lastAction": "2026-03-17",
+          "lastActionText": "Enacted; signed by the Governor",
+          "session": "2026 Regular Session",
+          "url": "https://legiscan.com/AL/bill/SB160/2026",
+          "sponsors": []
+        }
+      ]
+    },
+    {
+      "state": "AK",
+      "name": "Alaska",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "AZ",
+      "name": "Arizona",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "AR",
+      "name": "Arkansas",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "CA",
+      "name": "California",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "CO",
+      "name": "Colorado",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "CT",
+      "name": "Connecticut",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "DE",
+      "name": "Delaware",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "FL",
+      "name": "Florida",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "GA",
+      "name": "Georgia",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "HI",
+      "name": "Hawaii",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "ID",
+      "name": "Idaho",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "IL",
+      "name": "Illinois",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "IN",
+      "name": "Indiana",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "IA",
+      "name": "Iowa",
+      "status": "enacted",
+      "bills": [
+        {
+          "billNumber": "SF2139",
+          "title": "An act enacting the athletic trainer compact.",
+          "description": "Senate companion that was substituted for HF2600/HSB672 and enacted.",
+          "status": "enacted",
+          "lastAction": "2026-05-15",
+          "lastActionText": "Signed by the Governor",
+          "session": "2025-2026, 91st General Assembly",
+          "url": "https://legiscan.com/IA/bill/SF2139/2025",
+          "sponsors": []
+        }
+      ]
+    },
+    {
+      "state": "KS",
+      "name": "Kansas",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "KY",
+      "name": "Kentucky",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "LA",
+      "name": "Louisiana",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "ME",
+      "name": "Maine",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "MD",
+      "name": "Maryland",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "MA",
+      "name": "Massachusetts",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "MI",
+      "name": "Michigan",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "MN",
+      "name": "Minnesota",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "MS",
+      "name": "Mississippi",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "MO",
+      "name": "Missouri",
+      "status": "passed_one_chamber",
+      "bills": [
+        {
+          "billNumber": "HB1844",
+          "title": "Establishes a licensure compact for athletic trainers",
+          "description": "Creates a licensure compact framework for athletic trainers to practice across member states.",
+          "status": "passed_one_chamber",
+          "lastAction": "2026-04-28",
+          "lastActionText": "Passed House 117-27; public hearing held in Senate committee",
+          "session": "2026 Regular Session",
+          "url": "https://legiscan.com/MO/bill/HB1844/2026",
+          "sponsors": [
+            "Rep. Sherri Gallick",
+            "Rep. Ladonna Appelbaum"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "MT",
+      "name": "Montana",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "NE",
+      "name": "Nebraska",
+      "status": "failed",
+      "bills": [
+        {
+          "billNumber": "LB736",
+          "title": "Adopt the Athletic Trainer Compact",
+          "description": "Would adopt the Athletic Trainer Compact in Nebraska.",
+          "status": "failed",
+          "lastAction": "2026-04-17",
+          "lastActionText": "Indefinitely postponed; provisions folded into LB912 by amendment",
+          "session": "2025-2026, 109th Legislature",
+          "url": "https://legiscan.com/NE/bill/LB736/2025",
+          "sponsors": []
+        }
+      ]
+    },
+    {
+      "state": "NV",
+      "name": "Nevada",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "NH",
+      "name": "New Hampshire",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "NJ",
+      "name": "New Jersey",
+      "status": "passed_legislature",
+      "bills": [
+        {
+          "billNumber": "S4113",
+          "title": "Enters NJ into Athletic Trainer Compact.",
+          "description": "Enters New Jersey into the Athletic Trainer Compact (companion to A4821, which was substituted).",
+          "status": "passed_legislature",
+          "lastAction": "2026-06-30",
+          "lastActionText": "Passed Assembly 78-0-0; enrolled, awaiting governor's signature",
+          "session": "2026-2027 Regular Session",
+          "url": "https://legiscan.com/NJ/bill/S4113/2026",
+          "sponsors": []
+        }
+      ]
+    },
+    {
+      "state": "NM",
+      "name": "New Mexico",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "NY",
+      "name": "New York",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "NC",
+      "name": "North Carolina",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "ND",
+      "name": "North Dakota",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "OH",
+      "name": "Ohio",
+      "status": "passed_one_chamber",
+      "bills": [
+        {
+          "billNumber": "SB320",
+          "title": "Ratify the Athletic Trainer Compact",
+          "description": "Allows Ohio to join the Athletic Trainer Compact.",
+          "status": "passed_one_chamber",
+          "lastAction": "2026-05-01",
+          "lastActionText": "Passed Senate; sent to Ohio House for consideration",
+          "session": "2025-2026 Regular Session",
+          "url": "https://www.ohiosenate.gov/members/kristina-d-roegner/news/senate-passes-roegner-bill-ratifying-the-athletic-trainer-compact",
+          "sponsors": [
+            "Sen. Kristina Roegner"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "OK",
+      "name": "Oklahoma",
+      "status": "failed",
+      "bills": [
+        {
+          "billNumber": "SB1813",
+          "title": "Professions and occupations; enacting the Athletic Trainer Compact.",
+          "description": "Establishes the Athletic Trainer Compact for multi-state licensing coordination.",
+          "status": "failed",
+          "lastAction": "2026-04-07",
+          "lastActionText": "Died in chamber after House committee action; session ended without passage",
+          "session": "2026 Regular Session",
+          "url": "https://legiscan.com/OK/bill/SB1813/2026",
+          "sponsors": [
+            "Sen. Brenda Stanley",
+            "Rep. Ross Ford"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "OR",
+      "name": "Oregon",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "PA",
+      "name": "Pennsylvania",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "RI",
+      "name": "Rhode Island",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "SC",
+      "name": "South Carolina",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "SD",
+      "name": "South Dakota",
+      "status": "enacted",
+      "bills": [
+        {
+          "billNumber": "HB1149",
+          "title": "Adopt the athletic trainer licensure compact.",
+          "description": "Establishes an interstate compact for athletic trainer licensure in South Dakota.",
+          "status": "enacted",
+          "lastAction": "2026-03-30",
+          "lastActionText": "Signed by the Governor (H.J. 578)",
+          "session": "2026 Regular Session",
+          "url": "https://legiscan.com/SD/bill/HB1149/2026",
+          "sponsors": []
+        }
+      ]
+    },
+    {
+      "state": "TN",
+      "name": "Tennessee",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "TX",
+      "name": "Texas",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "UT",
+      "name": "Utah",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "VT",
+      "name": "Vermont",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "VA",
+      "name": "Virginia",
+      "status": "enacted",
+      "bills": [
+        {
+          "billNumber": "HB574",
+          "title": "Athletic Trainer Compact; authorizes Virginia to become a signatory to Compact.",
+          "description": "Permits Virginia to join the Athletic Trainer Compact.",
+          "status": "enacted",
+          "lastAction": "2026-04-06",
+          "lastActionText": "Approved by Governor, Chapter 176 of the Acts of Assembly",
+          "session": "2026 Regular Session",
+          "url": "https://legiscan.com/VA/bill/HB574/2026",
+          "sponsors": []
+        }
+      ]
+    },
+    {
+      "state": "WA",
+      "name": "Washington",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "WV",
+      "name": "West Virginia",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "WI",
+      "name": "Wisconsin",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "WY",
+      "name": "Wyoming",
+      "status": "not_introduced",
+      "bills": []
+    },
+    {
+      "state": "DC",
+      "name": "District of Columbia",
+      "status": "not_introduced",
+      "bills": []
+    }
+  ]
+}
