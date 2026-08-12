@@ -233,6 +233,7 @@
     </div>
     <div>
       <div class="updated" id="updated-at">Loading…</div>
+      <div class="refresh-status" id="last-checked-at"></div>
       <button class="refresh-btn" id="refresh-btn" type="button">Check for updates</button>
       <button class="theme-toggle" id="theme-toggle" type="button">Toggle dark mode</button>
       <div class="refresh-status" id="refresh-status"></div>
@@ -419,6 +420,25 @@
       });
     document.getElementById("sample-banner").style.display = payload.isSampleData ? "block" : "none";
 
+    // "Last checked" is separate from "Updated": a click on the button
+    // always bumps lastCheckedAt, even when the cooldown means no new
+    // LegiScan pull happened. Only show it when it's meaningfully more
+    // recent than the last real update, so it doesn't just repeat the same
+    // timestamp right after an actual refresh.
+    var checkedEl = document.getElementById("last-checked-at");
+    if (payload.lastCheckedAt) {
+      var checkedMs = new Date(payload.lastCheckedAt).getTime();
+      var fetchedMs = new Date(payload.fetchedAt).getTime();
+      if (checkedMs - fetchedMs > 60 * 1000) {
+        checkedEl.textContent =
+          "Last checked " + new Date(payload.lastCheckedAt).toLocaleString(undefined, {
+            dateStyle: "medium", timeStyle: "short",
+          });
+      } else {
+        checkedEl.textContent = "";
+      }
+    }
+
     renderStats(payload.states || []);
     if (!mapBuilt) { buildMap(); mapBuilt = true; }
     render();
@@ -433,7 +453,10 @@
   // Cooldown-protected server-side (see public-refresh.mts) — safe for any
   // visitor to click. Re-fetches /api/status afterward to pick up whatever
   // is now in Blobs, whether this click triggered a real LegiScan pull or
-  // just hit the cooldown and returned existing data.
+  // just hit the cooldown and returned existing data. The persistent
+  // "Last checked" line (rendered in applyPayload) carries the timing
+  // detail for every visitor, not just whoever clicked — this transient
+  // message is just immediate feedback for the person who clicked.
   var refreshBtn = document.getElementById("refresh-btn");
   var refreshStatusEl = document.getElementById("refresh-status");
   refreshBtn.addEventListener("click", function () {
@@ -446,14 +469,9 @@
       .then(function (result) {
         if (!result.ok) throw new Error(result.error || "Refresh failed");
         return loadData().then(applyPayload).then(function () {
-          if (result.skipped) {
-            var next = new Date(result.nextAllowedAt);
-            refreshStatusEl.textContent =
-              "Already checked recently — next check available around " +
-              next.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) + ".";
-          } else {
-            refreshStatusEl.textContent = "Refreshed just now.";
-          }
+          refreshStatusEl.textContent = result.skipped
+            ? "No new data — already checked recently."
+            : "Refreshed just now.";
         });
       })
       .catch(function (err) {
