@@ -16,7 +16,15 @@
 # Scheduled functions can't be invoked via URL, so this is a separate
 # HTTP function that shares the same fetch/store logic — useful for
 # testing or forcing an update without waiting for the daily cron.
+# Ignores the cooldown that /api/refresh-now respects, so use sparingly.
 [[redirects]]
   from = "/api/refresh"
   to = "/.netlify/functions/trigger-refresh"
+  status = 200
+
+# Public, cooldown-protected refresh — safe to expose as a button in the UI.
+# See public-refresh.mts for the cooldown logic.
+[[redirects]]
+  from = "/api/refresh-now"
+  to = "/.netlify/functions/public-refresh"
   status = 200

@@ -98,10 +98,16 @@
   .updated {
     font-size: 12px; color: var(--text-muted); text-align: right; white-space: nowrap;
   }
-  .theme-toggle {
+  .theme-toggle, .refresh-btn {
     font-size: 12px; color: var(--text-secondary); background: var(--surface-2);
     border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; cursor: pointer;
     margin-top: 6px;
+  }
+  .refresh-btn { margin-right: 6px; }
+  .refresh-btn:disabled { opacity: 0.6; cursor: default; }
+  .refresh-status {
+    font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 4px;
+    max-width: 220px; margin-left: auto;
   }
 
   .stat-row {
@@ -227,7 +233,9 @@
     </div>
     <div>
       <div class="updated" id="updated-at">Loading…</div>
+      <button class="refresh-btn" id="refresh-btn" type="button">Check for updates</button>
       <button class="theme-toggle" id="theme-toggle" type="button">Toggle dark mode</button>
+      <div class="refresh-status" id="refresh-status"></div>
     </div>
   </header>
 
@@ -397,7 +405,9 @@
       });
   }
 
-  loadData().then(function (payload) {
+  var mapBuilt = false;
+  function applyPayload(payload) {
+    dataByState = {};
     (payload.states || []).forEach(function (s) {
       dataByState[s.state] = s;
     });
@@ -407,16 +417,53 @@
       "Updated " + new Date(payload.fetchedAt).toLocaleString(undefined, {
         dateStyle: "medium", timeStyle: "short",
       });
-    if (payload.isSampleData) {
-      document.getElementById("sample-banner").style.display = "block";
-    }
+    document.getElementById("sample-banner").style.display = payload.isSampleData ? "block" : "none";
 
     renderStats(payload.states || []);
-    buildMap();
+    if (!mapBuilt) { buildMap(); mapBuilt = true; }
     render();
-  }).catch(function (err) {
+  }
+
+  loadData().then(applyPayload).catch(function (err) {
     document.getElementById("updated-at").textContent = "Failed to load data";
     console.error(err);
+  });
+
+  // ---------- public refresh button ----------
+  // Cooldown-protected server-side (see public-refresh.mts) — safe for any
+  // visitor to click. Re-fetches /api/status afterward to pick up whatever
+  // is now in Blobs, whether this click triggered a real LegiScan pull or
+  // just hit the cooldown and returned existing data.
+  var refreshBtn = document.getElementById("refresh-btn");
+  var refreshStatusEl = document.getElementById("refresh-status");
+  refreshBtn.addEventListener("click", function () {
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = "Checking…";
+    refreshStatusEl.textContent = "";
+
+    fetch("/api/refresh-now")
+      .then(function (r) { return r.json(); })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.error || "Refresh failed");
+        return loadData().then(applyPayload).then(function () {
+          if (result.skipped) {
+            var next = new Date(result.nextAllowedAt);
+            refreshStatusEl.textContent =
+              "Already checked recently — next check available around " +
+              next.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) + ".";
+          } else {
+            refreshStatusEl.textContent = "Refreshed just now.";
+          }
+        });
+      })
+      .catch(function (err) {
+        console.error("Manual refresh failed:", err);
+        refreshStatusEl.textContent = "Couldn't check for updates right now — try again shortly.";
+      })
+      .finally(function () {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "Check for updates";
+      });
   });
 
   function renderStats(states) {
